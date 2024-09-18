@@ -24,6 +24,7 @@ const Notes = (props) => {
     const ref=useRef(null);
     const refClose=useRef(null);
     const {showAlert}=props;
+    
     const updateNote=(currentNote)=>{
       ref.current.click();
       setNote({id:currentNote._id, etitle: currentNote.title,edescription: currentNote.description,etag: currentNote.tag})
