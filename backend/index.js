@@ -6,8 +6,16 @@ connectToMongo();
 const app = express()
 const port = 5000
 
+const corsOptions = {
+  origin: '*',  // This allows all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false,  // Must be false if origin is '*'
+  optionsSuccessStatus: 204
+};
+
 app.use(cors())
-app.use(express.json())
+app.use(express.json(corsOptions))
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
